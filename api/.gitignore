@@ -1,0 +1,5 @@
+# Backend-specific (common patterns covered by root .gitignore)
+/dist
+/coverage
+/.nyc_output
+.env

@@ -1,0 +1,10 @@
+[build]
+builder = "RAILPACK"
+buildCommand = "yarn install && yarn build"
+
+[deploy]
+startCommand = "yarn migration:run && node dist/src/database/seeds/admin.seed.js && node dist/src/main"
+healthcheckPath = "/api/v1/health"
+healthcheckTimeout = 300
+restartPolicyType = "ALWAYS"
+restartPolicyMaxRetries = 10

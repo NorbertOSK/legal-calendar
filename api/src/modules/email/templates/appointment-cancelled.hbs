@@ -1,0 +1,29 @@
+{{#> layout title="Legal Calendar" dashboardUrl=dashboardUrl theme=theme}}
+  <h1 style="margin:0 0 12px 0; font-size:24px; line-height:1.2; color:{{theme.textPrimary}};">Cita cancelada</h1>
+  <p style="margin:0 0 16px 0; font-size:16px; line-height:1.6; color:{{theme.textSecondary}};">
+    Hola <strong style="color:{{theme.textPrimary}};">{{clientName}}</strong>, tu cita con <strong style="color:{{theme.textPrimary}};">{{lawyerName}}</strong> ha sido cancelada.
+  </p>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:20px;">
+    <tr>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textSecondary}}; width:100px;">Asunto:</td>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textPrimary}}; font-weight:bold;">{{title}}</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textSecondary}};">Fecha:</td>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textPrimary}};">{{date}}</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textSecondary}};">Horario:</td>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textPrimary}};">{{time}}</td>
+    </tr>
+    {{#if clientTime}}
+    <tr>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textSecondary}};">Hora del cliente:</td>
+      <td style="padding:8px 0; font-size:14px; color:{{theme.textPrimary}};">{{clientTime}}</td>
+    </tr>
+    {{/if}}
+  </table>
+  <p style="margin:0 0 16px 0; font-size:13px; line-height:1.6; color:{{theme.textSecondary}};">
+    Se adjunta un archivo .ics de cancelacion para actualizar tu calendario.
+  </p>
+{{/layout}}

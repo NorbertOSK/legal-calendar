@@ -1,0 +1,121 @@
+{
+  "name": "legal-calendar-api",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "yarn migration:run && node dist/src/main",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:cov:backlog": "yarn test:cov && node scripts/coverage/generate-backlog.js",
+    "test:cov:strict": "yarn test:cov && node scripts/coverage/validate-strict.js",
+    "coverage:backlog": "node scripts/coverage/generate-backlog.js",
+    "coverage:strict": "node scripts/coverage/validate-strict.js",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d src/data-source.ts",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert",
+    "migration:generate": "yarn typeorm migration:generate",
+    "migration:show": "yarn typeorm migration:show",
+    "seed:admin": "ts-node -r tsconfig-paths/register src/database/seeds/admin.seed.ts",
+    "db:setup": "docker compose up -d && yarn migration:run && yarn seed:admin"
+  },
+  "dependencies": {
+    "@nest-lab/throttler-storage-redis": "^1.2.0",
+    "@nestjs-modules/mailer": "^2.0.2",
+    "@nestjs/common": "^11.0.14",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.0.14",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/mapped-types": "2.1.0",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.1.9",
+    "@nestjs/throttler": "^6.5.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "@types/compression": "^1.8.1",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "compression": "^1.8.1",
+    "handlebars": "^4.7.8",
+    "ioredis": "^5.6.1",
+    "joi": "^18.0.1",
+    "nodemailer": "^8.0.3",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "rimraf": "^6.0.1",
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.27"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.6",
+    "@nestjs/schematics": "^11.0.4",
+    "@nestjs/testing": "^11.0.14",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.1",
+    "@types/jest": "30.0.0",
+    "@types/node": "^24.6.0",
+    "@types/nodemailer": "^7.0.11",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/pg": "^8.15.5",
+    "@types/supertest": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "jest": "30.2.0",
+    "prettier": "^3.5.3",
+    "supertest": "^7.1.0",
+    "ts-jest": "29.4.4",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.8.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s",
+      "!**/*.spec.ts",
+      "!**/*.module.ts",
+      "!main.ts",
+      "!migrations/**/*.ts",
+      "!data-source.ts",
+      "!**/dto/**/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/$1"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/../jest.setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "\\.vscode/extensions/wallabyjs\\.console-ninja",
+      "\\.cursor/extensions/wallabyjs\\.console-ninja"
+    ]
+  }
+}

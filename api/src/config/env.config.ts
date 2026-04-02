@@ -1,0 +1,18 @@
+export const EnvConfiguration = () => ({
+  environment: process.env.NODE_ENV || 'dev',
+  databaseUrl: process.env.DATABASE_URL,
+  port: +process.env.PORT || 3000,
+  jwtSecret: process.env.JWT_SECRET,
+  jwtExpireIn: process.env.JWT_EXPIRE_IN,
+  dashboardDomain: process.env.DASHBOARD_DOMAIN || 'https://app.legalcalendar.app',
+  forgotPasswordJwtSecret: process.env.JWT_SECRET_FORGET_PASSWORD,
+  jwtForgetPasswordExpireIn: process.env.JWT_FORGET_PASSWORD_EXPIRE_IN,
+  redisURL: process.env.REDIS_URL,
+  corsWhiteList: process.env.CORS_WHITE_LIST,
+  smtpHost: process.env.SMTP_HOST,
+  smtpPort: +process.env.SMTP_PORT || 587,
+  smtpUser: process.env.SMTP_USER,
+  smtpPass: process.env.SMTP_PASS,
+  smtpFrom: process.env.SMTP_FROM || '"Legal Calendar" <noreply@legalcalendar.app>',
+  jwtRefreshExpireIn: process.env.JWT_REFRESH_EXPIRE_IN || '7d',
+});

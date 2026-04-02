@@ -1,0 +1,5 @@
+# Frontend-specific (common patterns covered by root .gitignore)
+dist
+dist-ssr
+*.local
+.env

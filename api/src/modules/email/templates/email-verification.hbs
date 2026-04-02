@@ -1,0 +1,25 @@
+{{#> layout title="Legal Calendar" dashboardUrl=dashboardUrl theme=theme}}
+  <h1 style="margin:0 0 12px 0; font-size:28px; line-height:1.2; color:{{theme.textPrimary}}; text-transform:capitalize;">{{name}}, verifica tu cuenta</h1>
+  <p style="margin:0 0 12px 0; font-size:16px; line-height:1.6; color:{{theme.textSecondary}};">
+    Este es tu código de seguridad para verificar tu cuenta en <strong style="color:{{theme.textPrimary}};">Legal Calendar</strong>.
+  </p>
+  <p style="margin:0 0 20px 0; font-size:16px; line-height:1.6; color:{{theme.textSecondary}};">
+    Ingresa a la URL de verificación e introduce este código para continuar disfrutando de Legal Calendar.
+  </p>
+
+  <div style="margin:0 0 24px 0; text-align:center;">
+    {{> otp-box code=securityCode theme=theme}}
+  </div>
+
+  <div style="text-align:center; margin-bottom:18px;">
+    {{> button href=verificationLink label="Verificar mi correo" theme=theme}}
+  </div>
+
+  <p style="margin:0 0 22px 0; font-size:13px; color:{{theme.textSecondary}}; line-height:1.6;">
+    Si el botón no funciona, <a href="{{verificationLink}}" target="_blank" style="color:{{theme.primary}}; text-decoration:underline;">haz clic aquí</a>.
+  </p>
+
+  <p style="margin:0; font-size:13px; color:{{theme.textSecondary}}; line-height:1.6;">
+    Si no solicitaste esta verificación, puedes ignorar este mensaje.
+  </p>
+{{/layout}}

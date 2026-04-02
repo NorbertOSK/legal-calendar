@@ -1,0 +1,23 @@
+{{#> layout title="Legal Calendar" dashboardUrl=dashboardUrl theme=theme}}
+  <h1 style="margin:0 0 12px 0; font-size:28px; line-height:1.2; color:{{theme.textPrimary}};">¡Has sido invitado!</h1>
+  <p style="margin:0 0 12px 0; font-size:16px; line-height:1.6; color:{{theme.textSecondary}};">
+    <strong style="text-transform:capitalize; color:{{theme.textPrimary}};">{{inviterName}}</strong> te ha invitado a unirte a
+    <strong style="color:{{theme.textPrimary}};">Legal Calendar</strong> como administrador.
+  </p>
+  <p style="margin:0 0 20px 0; font-size:14px; line-height:1.6; color:{{theme.textSecondary}};">
+    Haz clic en el botón de abajo para aceptar la invitación y crear tu cuenta.
+    Esta invitación expira en <strong style="color:{{theme.textPrimary}};">{{expirationHours}} horas</strong>.
+  </p>
+
+  <div style="text-align:center; margin-bottom:18px;">
+    {{> button href=invitationLink label="Aceptar invitacion" theme=theme}}
+  </div>
+
+  <p style="margin:0 0 22px 0; font-size:13px; color:{{theme.textSecondary}}; line-height:1.6;">
+    Si el botón no funciona, <a href="{{invitationLink}}" target="_blank" style="color:{{theme.primary}}; text-decoration:underline;">haz clic aquí</a>.
+  </p>
+
+  <p style="margin:0; font-size:13px; color:{{theme.textSecondary}}; line-height:1.6;">
+    Si no esperabas esta invitación, puedes ignorar este mensaje.
+  </p>
+{{/layout}}
